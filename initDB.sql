@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS Human(
+    id IDENTITY PRIMARY KEY,
+    name VARCHAR(100),
+    Birthday DATE
+
+);
