@@ -8,7 +8,7 @@ public class DatabasePopulateService {
         insertDb(database);
     }
 
-    public static void insertDb(Database database){
+    public static void insertDb(Database database) {
         String filepath = "D:/DevJavaCourses/ProjectJDBC/src/main/java/sql/populate_db.sql";
 
         try {
@@ -20,6 +20,5 @@ public class DatabasePopulateService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }

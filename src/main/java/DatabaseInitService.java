@@ -9,7 +9,7 @@ public class DatabaseInitService {
 
     }
 
-    public static void initDb(Database database){
+    public static void initDb(Database database) {
         String filePath = "D:/DevJavaCourses/ProjectJDBC/src/main/java/sql/init_db.sql";
 
         try {

@@ -9,7 +9,7 @@ class Database {
     private Connection connection;
     private String databaseUrl = "jdbc:h2:./test";
 
-    private Database(){
+    private Database() {
         try {
             connection = DriverManager.getConnection(databaseUrl);
         } catch (SQLException e) {
@@ -17,15 +17,14 @@ class Database {
         }
     }
 
-    public int executeUpdate(String sql){
-        try(Statement statement = connection.createStatement()){
+    public int executeUpdate(String sql) {
+        try (Statement statement = connection.createStatement()) {
             return statement.executeUpdate(sql);
         } catch (SQLException e) {
             e.printStackTrace();
             return -1;
         }
     }
-
 
     public static Database getInstance() {
         return INSTANCE;
@@ -35,7 +34,7 @@ class Database {
         return connection;
     }
 
-    public void close(){
+    public void close() {
         try {
             connection.close();
         } catch (SQLException e) {
