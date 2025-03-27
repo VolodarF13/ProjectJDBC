@@ -10,13 +10,10 @@ public class DatabaseInitService {
     }
 
     public static void initDb(Database database) {
-        String filePath = "D:/DevJavaCourses/ProjectJDBC/src/main/java/sql/init_db.sql";
+        String filePath = "sql/init_db.sql";
 
         try {
-            String sql = String.join(
-                    "\n",
-                    Files.readAllLines(Paths.get(filePath))
-            );
+            String sql = Files.readString(Paths.get(filePath));
             database.executeUpdate(sql);
         } catch (IOException e) {
             e.printStackTrace();

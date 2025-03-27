@@ -9,13 +9,11 @@ public class DatabasePopulateService {
     }
 
     public static void insertDb(Database database) {
-        String filepath = "D:/DevJavaCourses/ProjectJDBC/src/main/java/sql/populate_db.sql";
+        String filePath = "D:/DevJavaCourses/ProjectJDBC/src/main/java/sql/populate_db.sql";
 
         try {
-            String sql = String.join(
-                    "\n",
-                    Files.readAllLines(Paths.get(filepath))
-            );
+            String sql = Files.readString(Paths.get(filePath));
+
             database.executeUpdate(sql);
         } catch (IOException e) {
             e.printStackTrace();

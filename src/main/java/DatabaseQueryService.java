@@ -9,14 +9,11 @@ public class DatabaseQueryService {
     private static final Database INSTANCE = Database.getInstance();
 
     public List<MaxProjectCountClient> findMaxProjectClient() {
-        String filepath = "D:/DevJavaCourses/ProjectJDBC/src/main/java/sql/find_max_projects_client.sql";
+        String filePath = "sql/find_max_projects_client.sql";
         List<MaxProjectCountClient> maxProjectCountClientList = new ArrayList<>();
 
         try (Statement st = INSTANCE.getConnection().createStatement()) {
-            String sql = String.join(
-                    "\n",
-                    Files.readAllLines(Paths.get(filepath))
-            );
+            String sql = Files.readString(Paths.get(filePath));
             try (ResultSet rs = st.executeQuery(sql)) {
                 while (rs.next()) {
                     String name = rs.getString("name");
@@ -32,14 +29,11 @@ public class DatabaseQueryService {
     }
 
     public List<LongestProject> longestProjects() {
-        String filepath = "D:/DevJavaCourses/ProjectJDBC/src/main/java/sql/find_longest_project.sql";
+        String filePath = "sql/find_longest_project.sql";
         List<LongestProject> longestProjects = new ArrayList<>();
 
         try (Statement st = INSTANCE.getConnection().createStatement()) {
-            String sql = String.join(
-                    "\n",
-                    Files.readAllLines(Paths.get(filepath))
-            );
+            String sql = Files.readString(Paths.get(filePath));
             try (ResultSet rs = st.executeQuery(sql)) {
                 while (rs.next()) {
                     String name = rs.getString("client_ID");
@@ -55,14 +49,11 @@ public class DatabaseQueryService {
     }
 
     public List<MaxWorkerCountSalary> findMaxSalaryWorker() {
-        String filepath = "D:/DevJavaCourses/ProjectJDBC/src/main/java/sql/find_max_salary_worker.sql";
+        String filePath = "sql/find_max_salary_worker.sql";
         List<MaxWorkerCountSalary> workerCountSalaries = new ArrayList<>();
 
         try (Statement st = INSTANCE.getConnection().createStatement()) {
-            String sql = String.join(
-                    "\n",
-                    Files.readAllLines(Paths.get(filepath))
-            );
+            String sql = Files.readString(Paths.get(filePath));
             try (ResultSet rs = st.executeQuery(sql)) {
                 while (rs.next()) {
                     String name = rs.getString("NAME");
@@ -78,14 +69,11 @@ public class DatabaseQueryService {
     }
 
     public List<YoungestEldestWorker> findYoungestEldestWorker() {
-        String filepath = "D:/DevJavaCourses/ProjectJDBC/src/main/java/sql/find_youngest_eldest_workers.sql";
+        String filePath = "sql/find_youngest_eldest_workers.sql";
         List<YoungestEldestWorker> youngestEldestWorkers = new ArrayList<>();
 
         try (Statement st = INSTANCE.getConnection().createStatement()) {
-            String sql = String.join(
-                    "\n",
-                    Files.readAllLines(Paths.get(filepath))
-            );
+            String sql = Files.readString(Paths.get(filePath));
             try (ResultSet rs = st.executeQuery(sql)) {
                 while (rs.next()) {
                     String age = rs.getString("TYPE");
@@ -102,14 +90,11 @@ public class DatabaseQueryService {
     }
 
     public List<PriceOfEachProject> priceOfEachProjects() {
-        String filepath = "D:/DevJavaCourses/ProjectJDBC/src/main/java/sql/print_project_prices.sql";
+        String filePath = "sql/print_project_prices.sql";
         List<PriceOfEachProject> priceOfEachProjects = new ArrayList<>();
 
         try (Statement st = INSTANCE.getConnection().createStatement()) {
-            String sql = String.join(
-                    "\n",
-                    Files.readAllLines(Paths.get(filepath))
-            );
+            String sql = Files.readString(Paths.get(filePath));
             try (ResultSet rs = st.executeQuery(sql)) {
                 while (rs.next()) {
                     String project = rs.getString("PROJECT_ID");
@@ -123,5 +108,4 @@ public class DatabaseQueryService {
             return priceOfEachProjects;
         }
     }
-
 }
