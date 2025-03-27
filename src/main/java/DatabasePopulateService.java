@@ -9,7 +9,7 @@ public class DatabasePopulateService {
     }
 
     public static void insertDb(Database database) {
-        String filePath = "D:/DevJavaCourses/ProjectJDBC/src/main/java/sql/populate_db.sql";
+        String filePath = "sql/populate_db.sql";
 
         try {
             String sql = Files.readString(Paths.get(filePath));
