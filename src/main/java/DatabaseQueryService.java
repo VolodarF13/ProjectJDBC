@@ -7,6 +7,7 @@ import java.util.List;
 
 public class DatabaseQueryService {
     private static final Database INSTANCE = Database.getInstance();
+    private static final String NAME = "NAME";
 
     public List<MaxProjectCountClient> findMaxProjectClient() {
         String filePath = "sql/find_max_projects_client.sql";
@@ -16,7 +17,7 @@ public class DatabaseQueryService {
             String sql = Files.readString(Paths.get(filePath));
             try (ResultSet rs = st.executeQuery(sql)) {
                 while (rs.next()) {
-                    String name = rs.getString("name");
+                    String name = rs.getString(NAME);
                     int projectCount = rs.getInt("PROJECT_COUNT");
                     maxProjectCountClientList.add(new MaxProjectCountClient(name, projectCount));
                 }
@@ -56,7 +57,7 @@ public class DatabaseQueryService {
             String sql = Files.readString(Paths.get(filePath));
             try (ResultSet rs = st.executeQuery(sql)) {
                 while (rs.next()) {
-                    String name = rs.getString("NAME");
+                    String name = rs.getString(NAME);
                     int time = rs.getInt("SALARY");
                     workerCountSalaries.add(new MaxWorkerCountSalary(name, time));
                 }
@@ -77,7 +78,7 @@ public class DatabaseQueryService {
             try (ResultSet rs = st.executeQuery(sql)) {
                 while (rs.next()) {
                     String age = rs.getString("TYPE");
-                    String name = rs.getString("NAME");
+                    String name = rs.getString(NAME);
                     String birthday = rs.getString("BIRTHDAY");
                     youngestEldestWorkers.add(new YoungestEldestWorker(age, name, birthday));
                 }

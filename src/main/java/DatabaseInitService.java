@@ -6,10 +6,9 @@ public class DatabaseInitService {
     public static void main(String[] args) {
         Database database = Database.getInstance();
         initDb(database);
-
     }
 
-    public static void initDb(Database database) {
+    private static void initDb(Database database) {
         String filePath = "sql/init_db.sql";
 
         try {
