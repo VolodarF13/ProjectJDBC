@@ -1,3 +1,4 @@
+import java.sql.SQLException;
 import java.util.List;
 
 public class TestDateBase {
@@ -17,5 +18,6 @@ public class TestDateBase {
 
         List<PriceOfEachProject> priceOfEachProjects = new DatabaseQueryService().priceOfEachProjects();
         System.out.println("priceOfEachProjects.toString() = " + priceOfEachProjects.toString());
+
     }
 }
